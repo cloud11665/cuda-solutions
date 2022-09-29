@@ -10,7 +10,7 @@ Due to platform and or libc differences, the first couple hundred results of the
 
 ## Scoring
 
-$P(n) = max\left(0,\ 99 - \bigg\lfloor log_2 \big ( abs\left( 147100243658956343 - f^\star(x)\right) \bigg\rfloor\right)$ 
+$P(n) = max \bigg(0,\ 99 - \bigg\lfloor log_2 \big ( abs\left( 147100243658956343 - f^\star(x)\right) \bigg\rfloor\bigg)$ 
 
 ## Solution
 
@@ -51,15 +51,15 @@ Think about how many bits are changed at most in this operation.
 <summary>Solution</summary>
 
 - Precompute the for loop with the `rand()` function.
-- Simulate the 2 big for loops while treating the `in` variable as `x` in a 1st deg. polynomial, such that:  
-	$\quad \mathbf{if}$ $2\ |\ i\\$
-	$\quad \quad\left(ax + b\right) \mapsto \left(ax + b + i\right)\\$
+- Simulate the 2 big for loops while treating the `in` variable as $x$ in a 1st deg. polynomial, such that:  
+	$\quad \mathbf{if}\ 2\ |\ i$  
+	$\quad \quad\left(ax + b\right) \mapsto \left(ax + b + i\right)$  
 	$\quad \mathbf{else}$  
-	$\quad \quad\left(ax + b\right) \mapsto \left(iax + ib\right)\\$
+	$\quad \quad\left(ax + b\right) \mapsto \left(iax + ib\right)$  
 - When reversing the xor functions, you can just check if both cases when $i$-th bit is $1$ or $0$.  
-	$\quad b := x \oplus \left(1 \ll i \right)\\$
-	$\quad \mathbf{if}\ x = \left(b\ \oplus\ \left(1\gg i \right)\right) * c\left(b, i\right)\\$
-	$\quad \quad x \leftarrow b\\$
+	$\quad b := x \oplus \left(1 \ll i \right)$  
+	$\quad \mathbf{if}\ x = \left(b\ \oplus\ \left(1\gg i \right)\right) * c\left(b, i\right)$  
+	$\quad \quad x \leftarrow b$  
 	This leaves us with just the xor-shifts from step 2 which you can either compute by hand in $O\left(1\right)$ using inverse modulo or just iterating over the whole domain and computing the now optimized function for every possible input, which should still take less than an hour in the worst case. *(the CUDA version runs in less than a minute on my RTX 2080)*
 
 </details>
