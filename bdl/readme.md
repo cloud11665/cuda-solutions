@@ -6,7 +6,7 @@
 Find an $x \in \left(0, 2^{32}-1\right)$ such that $f\left(x\right) = 147100243658956343$, where $f$ is defined in [`bdl.cpp`](bdl.cpp).
 Due to platform and or libc differences, the first couple hundred results of the `rand()` function are provided in [`rand.txt`](rand.txt).
 
-*Note: I have lost the original problem statement, so this short description will have to do, but I this problem was very fun to solve.*
+*Note: I have lost the original problem statement, so this short description will have to do but in my opinion, this problem was very fun to solve.*
 
 ## Scoring
 
