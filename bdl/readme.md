@@ -10,7 +10,9 @@ Due to platform and or libc differences, the first couple hundred results of the
 
 ## Scoring
 
-$P(n) = max \bigg(0,\ 99 - \bigg\lfloor log_2 \big ( abs\left( 147100243658956343 - f^\star(x)\right) \bigg\rfloor\bigg)$ 
+Run `./bdl test {number}`. The point function is defined as follows:
+
+$P(n) = max \bigg(0,\ 99 - 2*\bigg\lfloor log_2 \big ( abs\left( 147100243658956343 - f(x)\right) \bigg\rfloor\bigg)$ 
 
 ## Solution
 

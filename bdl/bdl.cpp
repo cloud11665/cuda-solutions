@@ -1,3 +1,4 @@
+// g++ bdl.cpp -O3 -obdl -fwhole-program
 #include <bits/stdc++.h>
 #define ull unsigned long long
 #define MOD srand
@@ -31,11 +32,9 @@ ull c(ull b, int z)
     return w;
 }
 
-int main()
+ull f(ull in)
 {
-    ios_base::sync_with_stdio(0);
-    ull in, s2 = 0;
-    cin >> in;
+    ull s2 = 0;
     assert(in == (in % _max));
     in *= 123456789;
     in %= mod2;
@@ -60,5 +59,23 @@ int main()
     
     for (int i = 0; i < 100; i++)
         s2 += (ull)rand() * (ull)(rand() % 2 ? 1 : -1);
-    cout << s2 << ' ';
+    return s2;
+}
+
+int main(int argc, char **argv)
+{
+    switch (argc) {
+    break;case 1:
+        cout << "Usage: " << argv[0] << " [test] number\n";
+    break;case 2:
+        cout << f(atoll(argv[1])) << "\n";
+    break;case 3:
+        if (0 != strcasecmp(argv[1], "test")) return EXIT_FAILURE;
+        ull diff = f(atoll(argv[2]));
+        if (diff > 147100243658956343ull)
+            diff = diff -147100243658956343ull;
+        else
+            diff = 147100243658956343ull - diff;
+        cout << max(0, 99 - 2*(int)log2(diff)) << "\n";
+    }
 }
